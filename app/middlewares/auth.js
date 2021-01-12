@@ -10,7 +10,7 @@ const WithAuth = (req, res, next) => {
     if(!token)
         res.status(401).json({error: 'Unauthorized: no token provided'});
     else {
-        jwt.verify(token, secret, (err, decode) => {
+        jwt.verify(token, secret, (err, decoded) => {
             if(err)
                 res.status(401).json({error: 'Unauthorized: token invalid'});
             else {
